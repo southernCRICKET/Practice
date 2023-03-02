@@ -3,7 +3,7 @@ package com.GraphPractice;
 import java.util.*;
 
 public class DirectedGraph {
-    HashMap<Character, Node> nodes = new HashMap<Character, Node>();
+    HashMap<Character, Node> nodes = new HashMap<>();
 
     public void addNode(char name, char... args){
        // ArrayList<Character> neighbors = new ArrayList<Character>();
@@ -31,7 +31,7 @@ public class DirectedGraph {
     }
 
     public void depthFirstTraversal(char start){
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         stack.add(start);
         char current;
         while(stack.size()>0){
@@ -45,7 +45,7 @@ public class DirectedGraph {
     }
 
     public void breadthFirstTraversal(char start){
-        Queue<Character> queue = new PriorityQueue<Character>();
+        Queue<Character> queue = new PriorityQueue<>();
         queue.offer(start);
         char current;
         while(!queue.isEmpty()){
@@ -69,18 +69,6 @@ public class DirectedGraph {
         for(char c : nodes.get(current).neighbors){
             depthFirstRecursive(c,isVisited);
         }
-    }
-
-    public void breadthFirstRecursive(Queue<Character> queue, char current, ArrayList<Character> isVisited){
-        isVisited.add(current);
-        if(isVisited.size()==nodes.size()) {
-            System.out.println(current);
-            return;
-        }
-        else
-            System.out.print(current + " --> ");
-        buildQueue(queue,current);
-        breadthFirstRecursive(queue, queue.poll(), isVisited);
     }
 
     public void buildQueue(Queue<Character> queue, char current){

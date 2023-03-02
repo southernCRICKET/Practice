@@ -1,4 +1,4 @@
-package LinkedListPractice;
+package com.LinkedListPractice;
 
 public class Main {
 
